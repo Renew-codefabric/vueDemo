@@ -4,12 +4,12 @@
   </v-container>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import 'vuetify/dist/vuetify.min.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import Theme from './Theme.vue';
+import { mapGetters, mapActions } from "vuex";
+import "vuetify/dist/vuetify.min.css";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+import Theme from "./Theme.vue";
 export default {
-  name: 'ListTheme',
+  name: "ListTheme",
   components: {
     Theme
   },
@@ -17,13 +17,13 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(['themesList'])
+    ...mapGetters(["themesList"])
   },
   mounted() {
     this.getThemesList();
   },
   methods: {
-    ...mapActions(['getThemesList'])
+    ...mapActions(["getThemesList"])
   }
 };
 </script>

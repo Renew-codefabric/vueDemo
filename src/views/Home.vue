@@ -4,10 +4,10 @@
 
 <script>
 // @ is an alias to /src
-import Create from '@/components/theme/CreateTheme.vue';
+import Create from "@/components/theme/CreateTheme.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Create
   }

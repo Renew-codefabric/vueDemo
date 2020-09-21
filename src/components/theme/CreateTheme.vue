@@ -32,40 +32,40 @@
   </v-container>
 </template>
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import { SPORTS } from '@/store/constants';
+import { mapGetters, mapActions } from "vuex";
+import { SPORTS } from "@/store/constants";
 
-import firebase from 'firebase';
+import firebase from "firebase";
 const db = firebase.firestore();
-import ListTheme from './ListTheme.vue';
+import ListTheme from "./ListTheme.vue";
 export default {
-  name: 'Create',
+  name: "Create",
   components: {
     ListTheme
   },
   data() {
     return {
       state: {
-        currentPage: 'list'
+        currentPage: "list"
       },
       typeTheme: {
-        title: '',
+        title: "",
         type: SPORTS.SPORT2,
-        description: ''
+        description: ""
       }
     };
   },
   firestore: {
-    themes: db.collection('themes')
+    themes: db.collection("themes")
   },
   computed: {
-    ...mapGetters(['getTypesCategories'])
+    ...mapGetters(["getTypesCategories"])
   },
   methods: {
     changeState() {
-      this.state.currentPage = this.state.currentPage == 'list' ? 'create' : 'list';
+      this.state.currentPage = this.state.currentPage == "list" ? "create" : "list";
     },
-    ...mapActions(['addTheme'])
+    ...mapActions(["addTheme"])
   }
 };
 </script>

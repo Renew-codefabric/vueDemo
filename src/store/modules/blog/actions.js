@@ -1,10 +1,10 @@
-import { types } from './state';
-import firebase from 'firebase';
+import { types } from "./state";
+import firebase from "firebase";
 
 const getThemesList = async ({ commit }) => {
   const snapshot = await firebase
     .firestore()
-    .collection('themes')
+    .collection("themes")
     .get();
 
   const promiseThemes = snapshot.docs.map(doc => ({

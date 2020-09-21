@@ -32,10 +32,10 @@
   </v-row>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
-  name: 'UpdateTheme',
-  props: ['dialog', 'item', 'categories'],
+  name: "UpdateTheme",
+  props: ["dialog", "item", "categories"],
   data: () => ({
     getTypesCategories: {
       typeOptions: []
@@ -44,12 +44,12 @@ export default {
 
   methods: {
     closeDialog() {
-      this.$emit('update:dialog', false);
+      this.$emit("update:dialog", false);
     },
     changeTheme(item) {
       this.editTheme(item);
     },
-    ...mapActions(['editTheme'])
+    ...mapActions(["editTheme"])
   }
 };
 </script>

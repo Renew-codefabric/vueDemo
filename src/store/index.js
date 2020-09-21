@@ -1,5 +1,5 @@
-import Vuex from 'vuex';
-import module1 from './modules/blog';
+import Vuex from "vuex";
+import module1 from "./modules/blog";
 
 const createStore = () => {
   return new Vuex.Store({

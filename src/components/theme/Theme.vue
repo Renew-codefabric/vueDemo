@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import 'vuetify/dist/vuetify.min.css';
-import UpdateTheme from './UpdateTheme';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import { mapGetters, mapActions } from "vuex";
+import "vuetify/dist/vuetify.min.css";
+import UpdateTheme from "./UpdateTheme";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
 
 export default {
-  name: 'Theme',
+  name: "Theme",
   components: { UpdateTheme },
   props: {
     item: {
@@ -55,24 +55,24 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getTypesCategories'])
+    ...mapGetters(["getTypesCategories"])
   },
   mounted() {},
   methods: {
     deleteTheme(item) {
       this.$dialog
-        .confirm('Please confirm to continue')
+        .confirm("Please confirm to continue")
         .then(() => {
           this.removeTheme(item);
         })
         .catch(function() {
-          console.log('Clicked on cancel');
+          console.log("Clicked on cancel");
         });
     },
     openDialog() {
       this.dialog = true;
     },
-    ...mapActions(['removeTheme', 'editTheme'])
+    ...mapActions(["removeTheme", "editTheme"])
   }
 };
 </script>
