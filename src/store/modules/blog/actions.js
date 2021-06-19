@@ -14,29 +14,25 @@ const getThemesList = async ({ commit }) => {
   commit(types.GET_THEMES, promiseThemes);
 };
 
-const addTheme = ({ commit }, { type, title, description }) => {
+const addTheme = ({ commit }, { name, lastName, email }) => {
   commit(types.ADD_THEME, {
-    type,
-    title,
-    description
+    name,
+    lastName,
+    email
   });
 };
 
-const removeTheme = ({ commit }, { id, type, title, description }) => {
+const removeTheme = ({ commit }, { id, name, lastName, email }) => {
   commit(types.REMOVE_THEME, {
     id,
-    type,
-    title,
-    description
+    name, lastName, email
   });
 };
 
-const editTheme = ({ commit }, { id, title, type, description }) => {
+const editTheme = ({ commit }, { id, name, lastName, email }) => {
   commit(types.UPDATE_THEME, {
     id,
-    title,
-    type,
-    description
+    name, lastName, email
   });
 };
 

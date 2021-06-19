@@ -1,6 +1,13 @@
 <template>
   <v-container>
-    <Theme v-for="item in themesList" :key="item.title" :item="item" />
+    <div class="grid">
+      <Theme
+        v-bind:class="item.description == 'd' ? 'large' : 'item'"
+        v-for="item in themesList"
+        :key="item.name"
+        :item="item"
+      />
+    </div>
   </v-container>
 </template>
 <script>
@@ -27,3 +34,24 @@ export default {
   }
 };
 </script>
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 1em 1em;
+  grid-auto-flow: row dense;
+}
+
+.item {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0.25em;
+  padding: 2em;
+}
+
+.large {
+  background: rgba(255, 0, 0, 0.25);
+  grid-column: auto;
+  grid-row: auto / span 2;
+  height: 500px;
+}
+</style>

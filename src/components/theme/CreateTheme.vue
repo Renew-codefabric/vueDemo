@@ -19,9 +19,9 @@
               item-text="label"
               label="Themes"
             />
-            <v-text-field v-model="typeTheme.title" color="success" placeholder="Title" />
+            <v-text-field v-model="typeTheme.name" color="success" placeholder="name" />
             <v-text-field
-              v-model="typeTheme.description"
+              v-model="typeTheme.name"
               color="success"
               placeholder="Description"
             />
@@ -49,9 +49,9 @@ export default {
         currentPage: "list"
       },
       typeTheme: {
-        title: "",
-        type: SPORTS.SPORT2,
-        description: ""
+        name: "",
+        lastName: SPORTS.SPORT2,
+        email: ""
       }
     };
   },

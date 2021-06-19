@@ -8,13 +8,15 @@ import { firestorePlugin } from "vuefire";
 import "vuetify/dist/vuetify.min.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import VuejsDialog from "vuejs-dialog";
+import axios from "axios";
+import VueAxios from "vue-axios";
 
 // include the default style
 import "vuejs-dialog/dist/vuejs-dialog.min.css";
 
 // Tell Vue to install the plugin.
 Vue.use(VuejsDialog);
-
+Vue.use(VueAxios, axios);
 Vue.use(vuetify);
 Vue.use(firebase);
 Vue.use(firestorePlugin);

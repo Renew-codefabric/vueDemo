@@ -2,12 +2,8 @@
   <v-card class="mx-auto" max-width="344" outlined>
     <v-list-item three-line>
       <v-list-item-content>
-        <div class="overline mb-4">
-          {{ item.type }}
-        </div>
-        <v-list-item-title class="headline mb-1">
-          {{ item.title }}
-        </v-list-item-title>
+        <div class="overline mb-4">{{ item.type }}</div>
+        <v-list-item-title class="headline mb-1">{{ item.name }}</v-list-item-title>
         <v-list-item-subtitle>{{ item.description }}</v-list-item-subtitle>
       </v-list-item-content>
 
@@ -15,16 +11,19 @@
     </v-list-item>
 
     <v-card-actions>
-      <v-btn text @click="deleteTheme(item)">
-        Delete
-      </v-btn>
+      <v-btn text @click="deleteTheme(item)">Delete</v-btn>
       <span>
         <v-row justify="center">
           <v-dialog v-model="dialog" persistent max-width="290">
             <template v-slot:activator="{}">
               <v-btn text @click="openDialog()">edit</v-btn>
               <span>
-                <Update-Theme :dialog.sync="dialog" :item="item" :categories="getTypesCategories" />
+                <Update-Theme
+                  :dialog.sync="dialog"
+                  :method="parentMethod"
+                  :item="item"
+                  :categories="getTypesCategories"
+                />
               </span>
             </template>
           </v-dialog>
@@ -38,6 +37,7 @@
 import { mapGetters, mapActions } from "vuex";
 import "vuetify/dist/vuetify.min.css";
 import UpdateTheme from "./UpdateTheme";
+import { getBuilding } from "./service";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 
 export default {
@@ -51,7 +51,8 @@ export default {
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
+      name: "name"
     };
   },
   computed: {
@@ -59,6 +60,10 @@ export default {
   },
   mounted() {},
   methods: {
+    parentMethod() {
+      console.log("HOLA");
+      getBuilding();
+    },
     deleteTheme(item) {
       this.$dialog
         .confirm("Please confirm to continue")

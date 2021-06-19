@@ -35,7 +35,7 @@
 import { mapActions } from "vuex";
 export default {
   name: "UpdateTheme",
-  props: ["dialog", "item", "categories"],
+  props: ["dialog", "item", "categories", "method"],
   data: () => ({
     getTypesCategories: {
       typeOptions: []
@@ -44,6 +44,7 @@ export default {
 
   methods: {
     closeDialog() {
+      //this.method();
       this.$emit("update:dialog", false);
     },
     changeTheme(item) {
